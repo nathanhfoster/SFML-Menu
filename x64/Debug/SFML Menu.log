@@ -1,0 +1,10 @@
+﻿Build started 11/8/2015 5:23:07 PM.
+     1>Project "E:\Documents\Visual Studio 2015\Projects\SFML Menu\SFML Menu\SFML Menu.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Documents\Visual Studio 2015\Projects\SFML Menu\x64\Debug\SFML Menu.exe" /INCREMENTAL /NOLOGO "sfml-graphics-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\Documents\Visual Studio 2015\Projects\SFML Menu\x64\Debug\SFML Menu.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Documents\Visual Studio 2015\Projects\SFML Menu\x64\Debug\SFML Menu.lib" /MACHINE:X64 x64\Debug\Menu.obj
+     1>sfml-graphics-d.lib(sfml-graphics-d-2.dll) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'
+     1>Done Building Project "E:\Documents\Visual Studio 2015\Projects\SFML Menu\SFML Menu\SFML Menu.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.06

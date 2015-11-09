@@ -1,0 +1,11 @@
+﻿Build started 11/8/2015 5:23:28 PM.
+     1>Project "E:\Documents\Visual Studio 2015\Projects\SFML Menu\SFML Menu\SFML Menu.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Menu.cpp
+         Menu.cpp
+     1>Menu.cpp(1): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+     1>Done Building Project "E:\Documents\Visual Studio 2015\Projects\SFML Menu\SFML Menu\SFML Menu.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.08
