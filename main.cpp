@@ -5,6 +5,7 @@
 
 
 bool checkForMouseTrigger(sf::Sprite &av_Sprite, sf::RenderWindow &av_Window);
+void launchMenu(sf::RenderWindow &window);
 
 int main()
 {
@@ -12,7 +13,7 @@ int main()
 	sf::Texture paddleLarge;
 	sf::Texture leagueLogo;
 	sf::Texture leagueLaunch;
-	sf::Texture leaguePlay;
+	
 
 	if (!paddleLarge.loadFromFile("Paddle Large.png"))
 		window.close();
@@ -23,14 +24,12 @@ int main()
 	if (!leagueLaunch.loadFromFile("League Launch.png"))
 		window.close();
 
-	if (!leaguePlay.loadFromFile("League Play.png"))
-		window.close();
-
+	
 	// Sprites
 	sf::Sprite sprite_Paddle(paddleLarge);
 	sf::Sprite sprite_LeagueLogo(leagueLogo);
 	sf::Sprite sprite_LeagueLaunch(leagueLaunch);
-	sf::Sprite sprite_LeaguePlay(leaguePlay);
+	
 
 	// Audio
 	sf::SoundBuffer mainMenuBuffer;
@@ -47,7 +46,6 @@ int main()
 	{
 		sf::Event event;
 
-
 		//sf::Vector2i windowPosition = window.getPosition();
 		//int mouseX = sf::Mouse::getPosition().x + sprite.getGlobalBounds().width;
 		//int mouseY = sf::Mouse::getPosition().y + sprite.getGlobalBounds().height;
@@ -60,7 +58,6 @@ int main()
 		{
 			sprite_LeagueLogo.setPosition(550, 0);
 			sprite_LeagueLaunch.setPosition(100, 50);
-			sprite_LeaguePlay.setPosition(100, 250);
 			// Polled input handling -- mouse coordinates are in screen space, not window space
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 				sprite_Paddle.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window))); //Absolute transform
@@ -72,7 +69,11 @@ int main()
 				std::cout << "Paddle clicked!" << std::endl;
 
 			if (checkForMouseTrigger(sprite_LeagueLaunch, window))
+			{
 				std::cout << "Launch clicked!" << std::endl;
+				window.clear();
+				launchMenu(window);
+			}
 
 			switch (event.type)
 			{
@@ -126,15 +127,13 @@ int main()
 
 		window.draw(sprite_LeagueLaunch);
 
-		window.draw(sprite_LeaguePlay);
-
+		
 		window.display();
 	}
 }
 
 bool checkForMouseTrigger(sf::Sprite &sprite, sf::RenderWindow &window)
 {
-
 	int mouseX = sf::Mouse::getPosition().x;
 	int mouseY = sf::Mouse::getPosition().y;
 
@@ -150,4 +149,39 @@ bool checkForMouseTrigger(sf::Sprite &sprite, sf::RenderWindow &window)
 		return false;
 	}
 	return false;
+}
+
+void launchMenu(sf::RenderWindow &window)
+{
+	sf::Texture leaguePlay;
+	if (!leaguePlay.loadFromFile("League Play.png"))
+		window.close();
+
+
+	sf::Sprite sprite_LeaguePlay(leaguePlay);
+
+	while (window.isOpen())
+	{
+		sf::Event event;
+
+		while (window.pollEvent(event))
+		{
+			sprite_LeaguePlay.setPosition(100, 250);
+
+			if (checkForMouseTrigger(sprite_LeaguePlay, window))
+				std::cout << "Play clicked!" << std::endl;
+
+			switch (event.type)
+			{
+			case sf::Event::Closed:
+				window.close();
+				break;
+			}
+
+			window.clear();
+			window.draw(sprite_LeaguePlay);
+			window.display();
+		}
+
+	}
 }
