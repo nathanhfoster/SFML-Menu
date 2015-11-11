@@ -9,7 +9,7 @@ void launchMenu(sf::RenderWindow &window);
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML WORK!");
+	sf::RenderWindow window(sf::VideoMode(1920, 1080), "League Project");
 	sf::Texture paddleLarge;
 	sf::Texture leagueLogo;
 	sf::Texture leagueLaunch;
@@ -36,9 +36,16 @@ int main()
 	if (!mainMenuBuffer.loadFromFile("MainMenuMusic.ogg"))
 		window.close();
 
+	sf::SoundBuffer launchBuffer;
+	if (!launchBuffer.loadFromFile("LaunchSound.ogg"))
+		window.close();
+
 	sf::Sound mainMenuMusic;
 	mainMenuMusic.setBuffer(mainMenuBuffer);
 	mainMenuMusic.play();
+
+	sf::Sound launchSound;
+	launchSound.setBuffer(launchBuffer);
 
 	Menu menu(window.getSize().x, window.getSize().y);
 
@@ -72,6 +79,7 @@ int main()
 			{
 				std::cout << "Launch clicked!" << std::endl;
 				window.clear();
+				launchSound.play();
 				launchMenu(window);
 			}
 
